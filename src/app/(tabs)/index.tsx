@@ -1,11 +1,14 @@
-import { View, Text } from 'react-native'
+import { Button ,View, Text } from 'react-native'
 import React from 'react'
+import * as Sentry from '@sentry/react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ChatScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>ChatScreen</Text>
-    </View>
+      <Button title='Try!' onPress={ () => { Sentry.captureException(new Error('First error')) }}/>
+    </SafeAreaView>
   )
 }
 
